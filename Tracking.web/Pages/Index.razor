@@ -9,20 +9,20 @@
 <p><em>Loading...</em></p> }
 else
 {*@
- <DxDataGrid Data=@_COneMastersV1Service.Get() AllowDataRowSelection=false ShowPager="true" ShowGroupPanel="true" PageSize="10" ShowFilterRow=true>
-  <DxDataGridDateEditColumn Field="@nameof(COneMastersV1.delivery_date)" DisplayFormat="MM/dd" SortIndex="1" SortOrder="DataGridColumnSortOrder.Ascending" Caption="配送予定" Visible="false" ShowInColumnChooser="false"  Width="200px" />
-  <DxDataGridDateEditColumn Field="@nameof(COneMastersV1.user_delivery_date)" DisplayFormat="MM/dd" Caption="配達予定日(編集後)" Visible="false" ShowInColumnChooser="false" />
-  <DxDataGridColumn VisibleIndex="0" Field="@nameof(COneMastersV1.user_delivery_date_changed_by)" Caption="配達予定日を変更したユーザーID" Visible="false" />
-  <DxDataGridDateEditColumn VisibleIndex="1" Field="@nameof(COneMastersV1.user_delivery_date_changed_at)" DisplayFormat="MM/dd tt hh:mm" Caption="配達予定日が変更された日時" Visible="false" />
-                    @*<DxDataGridComboBoxColumn VisibleIndex="2" Field="@nameof(COneMastersV1.Status)"
+ <DxDataGrid Data=@_COneMastersV1Service.Get() AllowSort="false"  ShowPager="true" ShowGroupPanel="true" PageSize="20" ShowFilterRow=true>
+  <DxDataGridDateEditColumn Field="@nameof(COneMasterV1Model.delivery_date)" SortIndex="1" SortOrder="DataGridColumnSortOrder.Descending" DisplayFormat="MM/dd"  Caption="配送予定" Visible="false"  ShowInColumnChooser="false"  Width="200px" />
+  <DxDataGridDateEditColumn Field="@nameof(COneMasterV1Model.user_delivery_date)" DisplayFormat="MM/dd" Caption="配達予定日(編集後)" Visible="false" ShowInColumnChooser="false" />
+  <DxDataGridColumn VisibleIndex="0" Field="@nameof(COneMasterV1Model.user_delivery_date_changed_by)" Caption="配達予定日を変更したユーザーID" Visible="false" />
+  <DxDataGridDateEditColumn VisibleIndex="1" Field="@nameof(COneMasterV1Model.user_delivery_date_changed_at)" DisplayFormat="MM/dd tt hh:mm" Caption="配達予定日が変更された日時" Visible="false" />
+                    @*<DxDataGridComboBoxColumn VisibleIndex="2" Field="@nameof(COneMasterV1Model.Status)"
                         Data="@Enum.GetNames(typeof(DeliveryStatus))"
                         FilteringMode="DataGridFilteringMode.StartsWith"
                         Caption="ステータス" />*@
 
-   <DxDataGridDateEditColumn VisibleIndex="3" Field="@nameof(COneMastersV1.wms_processing_date)" DisplayFormat="MM/dd" Caption="取込日" />
-   <DxDataGridDateEditColumn VisibleIndex="4" Field="@nameof(COneMastersV1.retrieval_date)" DisplayFormat="MM/dd" Caption="発送日" />
-   <DxDataGridDateEditColumn VisibleIndex="5" Field="@nameof(COneMastersV1.shipper_accounting_date)" DisplayFormat="MM/dd" Caption="伝票日付" />
-                    @*<DxDataGridComboBoxColumn VisibleIndex="6" Field="@nameof(COneMastersV1.shipper_code)"
+   <DxDataGridDateEditColumn VisibleIndex="3" Field="@nameof(COneMasterV1Model.wms_processing_date)" DisplayFormat="MM/dd" Caption="取込日" />
+   <DxDataGridDateEditColumn VisibleIndex="4" Field="@nameof(COneMasterV1Model.retrieval_date)" DisplayFormat="MM/dd" Caption="発送日" />
+   <DxDataGridDateEditColumn VisibleIndex="5" Field="@nameof(COneMasterV1Model.shipper_accounting_date)" DisplayFormat="MM/dd" Caption="伝票日付" />
+                    @*<DxDataGridComboBoxColumn VisibleIndex="6" Field="@nameof(COneMasterV1Model.shipper_code)"
                         CustomData="@GetShipperCodeDataAsync"
                         T="@(Shipper)"
                         TextFieldName="@nameof(Shipper.ShipperCode)"
@@ -30,8 +30,8 @@ else
                         FilteringMode="DataGridFilteringMode.StartsWith"
                         Caption="荷主コード" />*@
 
-   <DxDataGridColumn VisibleIndex="7" Field="@nameof(COneMastersV1.shipper_name)" Caption="荷主" />
-                    @*<DxDataGridComboBoxColumn VisibleIndex="8" Field="@nameof(COneMastersV1.sales_office_code)"
+   <DxDataGridColumn VisibleIndex="7" Field="@nameof(COneMasterV1Model.shipper_name)" Caption="荷主" />
+                    @*<DxDataGridComboBoxColumn VisibleIndex="8" Field="@nameof(COneMasterV1Model.sales_office_code)"
                         CustomData="@GetSalesOfficeCodeDataAsync"
                         T="@(SalesOffice)"
                         TextFieldName="@nameof(SalesOffice.SalesOfficeCode)"
@@ -40,32 +40,32 @@ else
                         Caption="事業所コード" />*@
 
 
-   <DxDataGridColumn VisibleIndex="9" Field="@nameof(COneMastersV1.sales_office_name)" Caption="事業所" />
-   <DxDataGridColumn VisibleIndex="10" Field="@nameof(COneMastersV1.warehouse_code)" Caption="センターコード" />
-   <DxDataGridColumn VisibleIndex="11" Field="@nameof(COneMastersV1.warehouse_name)" Caption="センター" />
-   <DxDataGridColumn VisibleIndex="12" Field="@nameof(COneMastersV1.transporter_code)" Caption="運送会社コード" />
-   <DxDataGridColumn VisibleIndex="13" Field="@nameof(COneMastersV1.transporter_name)" Caption="運送会社" />
-   <DxDataGridColumn VisibleIndex="14" Field="@nameof(COneMastersV1.delivery_code)" Caption="納品先コード" />
-   <DxDataGridColumn VisibleIndex="15" Field="@nameof(COneMastersV1.receiver_names)" Caption="納品先" />
-   <DxDataGridColumn VisibleIndex="16" Field="@nameof(COneMastersV1.slip_number)" Caption="伝票番号" />
-   <DxDataGridColumn VisibleIndex="17" Field="@nameof(COneMastersV1.shipper_trading_name)"    Caption="取引コード">
+   <DxDataGridColumn VisibleIndex="9" Field="@nameof(COneMasterV1Model.sales_office_name)" Caption="事業所" />
+   <DxDataGridColumn VisibleIndex="10" Field="@nameof(COneMasterV1Model.warehouse_code)" Caption="センターコード" />
+   <DxDataGridColumn VisibleIndex="11" Field="@nameof(COneMasterV1Model.warehouse_name)" Caption="センター" />
+   <DxDataGridColumn VisibleIndex="12" Field="@nameof(COneMasterV1Model.transporter_code)" Caption="運送会社コード" />
+   <DxDataGridColumn VisibleIndex="13" Field="@nameof(COneMasterV1Model.transporter_name)" Caption="運送会社" />
+   <DxDataGridColumn VisibleIndex="14" Field="@nameof(COneMasterV1Model.delivery_code)" Caption="納品先コード" />
+   <DxDataGridColumn VisibleIndex="15" Field="@nameof(COneMasterV1Model.receiver_names)" Caption="納品先" />
+   <DxDataGridColumn VisibleIndex="16" Field="@nameof(COneMasterV1Model.slip_number)" Caption="伝票番号" />
+   <DxDataGridColumn VisibleIndex="17" Field="@nameof(COneMasterV1Model.shipper_trading_name)"    Caption="取引コード">
    </DxDataGridColumn>
 
 
-   <DxDataGridColumn VisibleIndex="18" Field="@nameof(COneMastersV1.id)" Caption="詳細" TextAlignment="DataGridTextAlign.Center">
+   @*<DxDataGridColumn VisibleIndex="18" Field="@nameof(COneMasterV1Model.id)" Caption="詳細" TextAlignment="DataGridTextAlign.Center">
                         <DisplayTemplate>
                             @{
-                                var rowId = (context as COneMastersV1).id;
+                                var rowId = (context as COneMasterV1Model).id;
                                 string redirectionUrl = $"/TrackingDetails/{rowId}";
                                 <a href="@redirectionUrl" target="_blank" class="btn btn-primary btn-sm map-button">詳細</a>
                             }
                         </DisplayTemplate>
-   </DxDataGridColumn>
+   </DxDataGridColumn>*@
   </DxDataGrid>
 @*}*@
  @code
 { 
-     //private IQueryable<COneMastersV1> _COneMastersV1;
+     //private IQueryable<COneMasterV1Model> _COneMastersV1;
      //protected override async Task OnInitializedAsync()
      //{
      //    //_COneMastersV1 = await _COneMastersV1Service.Get();

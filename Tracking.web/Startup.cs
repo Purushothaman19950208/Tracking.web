@@ -35,10 +35,12 @@ namespace Tracking.web
             services.AddXpoDefaultDataLayer(ServiceLifetime.Singleton, dl => dl
              .UseConnectionString(Configuration.GetConnectionString("DBConnection"))
              .UseThreadSafeDataLayer(true)
-             .UseEntityTypes(typeof(COneMastersV1)) // Pass all of your persistent object types to this method.
+             .UseEntityTypes(typeof(COneMastersV1), typeof(Shippers)) // Pass all of your persistent object types to this method.
          );
             services.AddXpoDefaultUnitOfWork();
-           // services.AddScoped<IObjectSpace>();
+            //  services.
+            // services.AddScoped<IObjectSpace>();
+          
 
         }
 
@@ -66,6 +68,7 @@ namespace Tracking.web
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
+         //   app.CreateObjectSpace()
         }
     }
 }

@@ -343,7 +343,7 @@ namespace Tracking.web.sql_trackingdb_stag
             set { SetPropertyValue<string>(nameof(shipper_trading_short_name), ref fshipper_trading_short_name, value); }
         }
         string freceiver_names;
-        [Size(SizeAttribute.Unlimited)]
+        [Size(SizeAttribute.Unlimited)] 
         public string receiver_names
         {
             get { return freceiver_names; }
@@ -390,6 +390,22 @@ namespace Tracking.web.sql_trackingdb_stag
             get { return fuser_delivery_status_changed_by; }
             set { SetPropertyValue<string>(nameof(user_delivery_status_changed_by), ref fuser_delivery_status_changed_by, value); }
         }
+
+        //string fshipper_Full_Name;
+        //[Size(SizeAttribute.Unlimited)]
+        //public string shipper_Full_Name
+        //{
+        //    get { return fshipper_Full_Name; }
+        //    set { SetPropertyValue<string>(nameof(shipper_Full_Name), ref fshipper_Full_Name, value); }
+        //}
+
+        //string fshipper_Short_Name;
+        //[Size(SizeAttribute.Unlimited)]
+        //public string shipper_Short_Name
+        //{
+        //    get { return fshipper_Full_Name; }
+        //    set { SetPropertyValue<string>(nameof(shipper_Short_Name), ref fshipper_Short_Name, value); }
+        //}
     }
 
 }
